@@ -8,7 +8,7 @@ learn [Introducing Amazon EventBridge Scheduler](https://aws.amazon.com/blogs/co
 
 ### Differences between EventBridge Scheduler and EventBridge rules
 
-![](https://twitter.com/nickste/status/1590860896624340994?s=20&t=X2jVNzLdW5cRVrwocqCpQA)
+![](https://www.evernote.com/l/AAEZYCpxKAlHhZv8BUR9HeV-z35mtfvHyYwB/image.png)
 
 ## Resources
 

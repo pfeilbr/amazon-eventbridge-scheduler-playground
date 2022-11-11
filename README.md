@@ -27,6 +27,32 @@ aws scheduler create-schedule --name SendEmailOnce \
 Bash
 ```
 
+there is a SAM event type of `Type: ScheduleV2` that can trigger lambda or state machine
+
+```yaml
+MyFunction:
+  Type: AWS::Serverless::Function
+  Properties:
+    Events:
+      CWSchedule:
+        Type: ScheduleV2
+        Properties:
+          Schedule: 'rate(1 minute)'
+          Name: TestScheduleV2Function
+          Description: Test schedule event
+                    
+MyStateMachine:
+  Type: AWS::Serverless::StateMachine
+  Properties:
+    Events:
+      CWSchedule:
+        Type: ScheduleV2
+        Properties:
+          Schedule: 'rate(1 minute)'
+          Name: TestScheduleV2StateMachine
+          Description: Test schedule event
+```
+
 ---
 
 
@@ -39,6 +65,7 @@ Bash
 - [Introducing Amazon EventBridge Scheduler](https://aws.amazon.com/blogs/compute/introducing-amazon-eventbridge-scheduler/)
 - [Amazon EventBridge Scheduler - Launch Announcement](https://twitter.com/nickste/status/1590831305612488704?s=20&t=X2jVNzLdW5cRVrwocqCpQA) (twitter)
 - [Scheduler User Guide](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html)
+- [Scheduling events with EventBridge Scheduler](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/using-eventbridge-scheduler.html)
 - [Amazon EventBridge Scheduler resource type reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Scheduler.html)
 - [AWS::Scheduler::Schedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scheduler-schedule.html)
 - [AWS::Scheduler::ScheduleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scheduler-schedulegroup.html)
